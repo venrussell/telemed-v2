@@ -12,7 +12,7 @@ const RegisterSuccess = () => {
       <View style={styles.headerCircles}></View>
       <Text style={styles.title}>Registration Success</Text>
       <Image source={require("../../assets/check.png")} style={styles.successIcon} />
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Home")}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Login")}>
         <Text style={styles.buttonText}>Proceed</Text>
       </TouchableOpacity>
     </View>
