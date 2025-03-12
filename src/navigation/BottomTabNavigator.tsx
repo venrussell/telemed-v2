@@ -5,13 +5,14 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import HomeScreen from "../screens/HomeScreen";
 import { View, Text } from "react-native";
 
+
 const Tab = createBottomTabNavigator();
 
 // Placeholder Screens
 const LocationScreen = () => <View><Text>Location Screen</Text></View>;
 const PhoneScreen = () => <View><Text>Phone Screen</Text></View>;
 const ChatbotScreen = () => <View><Text>Chatbot Screen</Text></View>;
-const ContactsScreen = () => <View><Text>Contacts Screen</Text></View>;
+const ContactsScreen = () => <View><Text>Account Screen</Text></View>;
 
 const BottomTabNavigator = () => {
     return (
@@ -27,7 +28,7 @@ const BottomTabNavigator = () => {
             iconName = "call";
           } else if (route.name === "Chatbot") {
             iconName = "chatbubble";
-          } else if (route.name === "Contacts") {
+          } else if (route.name === "Account") {
             iconName = "person";
           }
   
@@ -45,7 +46,7 @@ const BottomTabNavigator = () => {
         <Tab.Screen name="Location" component={LocationScreen} />
         <Tab.Screen name="Phone" component={PhoneScreen} />
         <Tab.Screen name="Chatbot" component={ChatbotScreen} />
-        <Tab.Screen name="Contacts" component={ContactsScreen} />
+        <Tab.Screen name="Account" component={ContactsScreen} />
       </Tab.Navigator>
     );
   };
