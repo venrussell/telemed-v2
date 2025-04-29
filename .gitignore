@@ -1,0 +1,21 @@
+# Ignore Python virtual environment
+.venv/
+
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+
+# Ignore environment variables
+.env
+
+# Ignore SQLite database
+*.sqlite3
+
+# Ignore VSCode settings
+.vscode/
+
+# Ignore Mac OS files
+.DS_Store
+
+# Ignore Node.js modules
+node_modules/
