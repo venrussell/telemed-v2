@@ -22,6 +22,11 @@ const LoginScreen = () => {
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
+    if (!identifier.trim() || !password.trim()) {
+      Alert.alert("Error", "Please enter both username/email and password.");
+      return;
+    }
+  
     try {
       const storedUsers = await AsyncStorage.getItem("users");
       if (!storedUsers) {
@@ -29,13 +34,15 @@ const LoginScreen = () => {
         return;
       }
   
-      const users: User[] = JSON.parse(storedUsers); 
-      const user = users.find((u: User) => (u.username === identifier || u.email === identifier) && u.password === password);
+      const users: User[] = JSON.parse(storedUsers);
+      const user = users.find(
+        (u: User) => (u.username === identifier || u.email === identifier) && u.password === password
+      );
   
       if (user) {
-        await AsyncStorage.setItem("currentUser", JSON.stringify(user)); 
-        navigation.navigate("Home");
+        await AsyncStorage.setItem("currentUser", JSON.stringify(user));
         Alert.alert("Success", "Logged in successfully!");
+        navigation.navigate("Home");
       } else {
         Alert.alert("Error", "Invalid credentials!");
       }
@@ -46,6 +53,14 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
+      {/* Background Circles */}
+      <View style={styles.circleLarge}>
+        <Text style={{ opacity: 0 }}>•</Text> {/* Prevent empty View issues */}
+      </View>
+      <View style={styles.circleSmall}>
+        <Text style={{ opacity: 0 }}>•</Text> {/* Prevent empty View issues */}
+      </View>
+
       <Image source={require("../../assets/log.jpg")} style={styles.logo} /> 
 
       <TextInput style={styles.input} placeholder="Username or Email" placeholderTextColor="white" value={identifier} onChangeText={setIdentifier} />
@@ -65,10 +80,29 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   container: { 
     flex: 1, 
-    backgroundColor: "#fff", 
     justifyContent: "center", 
     alignItems: "center", 
-    padding: 20 
+    backgroundColor: "#fff", 
+  },
+  // Large Darker Circle (Bottom Layer)
+  circleLarge: {
+    position: "absolute",
+    top: -80,
+    left: -80,
+    width: 250,
+    height: 250,
+    backgroundColor: "#6A6D96",
+    borderRadius: 125,
+  },
+  // Slightly Bigger Purple Circle (Top Layer)
+  circleSmall: {
+    position: "absolute",
+    top: -110, // Adjusted for better alignment
+    left: 40,  // Adjusted for better overlap
+    width: 200, // Slightly increased from 180 to 200
+    height: 200,
+    backgroundColor: "#5951B3",
+    borderRadius: 100, // Half of width/height for a perfect circle
   },
   logo: { 
     width: 100, 

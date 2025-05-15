@@ -21,6 +21,7 @@ const RegistrationScreen = () => {
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [medicalhi, setMedicalHistory] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   
@@ -46,18 +47,17 @@ const RegistrationScreen = () => {
     }
   };
   
-  
-
-
   return (
     <View style={styles.container}>
-      <View style={styles.headerCircles}></View>
+      <View style={styles.circleLarge}></View>
+      <View style={styles.circleSmall}></View>
       <Text style={styles.title}>Registration</Text>
 
       <TextInput style={styles.input} placeholder="Enter Username" placeholderTextColor="white" value={username} onChangeText={setUsername} />
       <TextInput style={styles.input} placeholder="Enter Fullname" placeholderTextColor="white" value={fullname} onChangeText={setFullname} />
       <TextInput style={styles.input} placeholder="Email Address" placeholderTextColor="white" value={email} onChangeText={setEmail} />
       <TextInput style={styles.input} placeholder="Phone Number" placeholderTextColor="white" value={phone} onChangeText={setPhone} />
+      <TextInput style={styles.input} placeholder="Enter Medical History" placeholderTextColor="white" value={username} onChangeText={setMedicalHistory} />
       <TextInput style={styles.input} placeholder="Password" secureTextEntry placeholderTextColor="white" value={password} onChangeText={setPassword} />
       <TextInput style={styles.input} placeholder="Re-Enter Your Password" secureTextEntry placeholderTextColor="white" value={confirmPassword} onChangeText={setConfirmPassword} />
 
@@ -73,53 +73,60 @@ const RegistrationScreen = () => {
 };
 
 const styles = StyleSheet.create({
-    container: { 
-        flex: 1, 
-        backgroundColor: "#fff", 
-        justifyContent: "center", 
-        alignItems: "center", 
-        padding: 20 
-    },
-    headerCircles: { 
-        position: "absolute", 
-        top: 0, left: 0, 
-        width: 150, 
-        height: 150, 
-        backgroundColor: "#6653e0", 
-        borderBottomRightRadius: 150 
-    },
-    title: { 
-        fontSize: 22, 
-        fontWeight: "bold", 
-        marginBottom: 20 
-    },
-    input: { 
-        width: "90%", 
-        height: 50, 
-        backgroundColor: "#6653e0", 
-        borderRadius: 25, 
-        marginVertical: 8, 
-        paddingLeft: 20, 
-        color: "white" 
-    },
-    button: { 
-        width: "90%", 
-        height: 50, 
-        backgroundColor: "#6653e0", 
-        borderRadius: 25, 
-        justifyContent: "center", 
-        alignItems: "center", 
-        marginVertical: 15 
-    },
-    buttonText: { 
-        color: "white", 
-        fontSize: 18, 
-        fontWeight: "bold" 
-    },
-    footerText: { 
-        color: "#6653e0", 
-        marginTop: 10 
-    },
-  });
-  
-  export default RegistrationScreen;
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff",
+  },
+  circleLarge: {
+    position: "absolute",
+    top: -80,
+    left: -80,
+    width: 250,
+    height: 250,
+    backgroundColor: "#6A6D96",
+    borderRadius: 125,
+  },
+  circleSmall: {
+    position: "absolute",
+    top: -110,
+    left: 40,
+    width: 200,
+    height: 200,
+    backgroundColor: "#5951B3",
+    borderRadius: 100,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  input: {
+    width: "80%",
+    padding: 12,
+    borderRadius: 20,
+    backgroundColor: "#6653e0",
+    color: "#fff",
+    textAlign: "center",
+    marginBottom: 10,
+  },
+  button: {
+    backgroundColor: "#6653e0",
+    padding: 12,
+    borderRadius: 25,
+    width: "80%",
+    alignItems: "center",
+    marginTop: 15,
+  },
+  buttonText: {
+    color: "#fff",
+    fontWeight: "bold",
+  },
+  footerText: {
+    color: "#6653e0",
+    marginTop: 10,
+  },
+});
+
+export default RegistrationScreen;
